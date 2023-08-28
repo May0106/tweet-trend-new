@@ -12,13 +12,13 @@ pipeline {
             }
         }
 
-    stage('SonarQube analysis'){
-    environment {
-        scannerHome = tool 'sonar-scanner'
+        stage('SonarQube analysis') {
+        environment {
+           scannerHome = tool 'valaxy-sonar-scanner'
     }    
-    steps{
-    withSonarQubeEnv('sonarqube-server') {
-       sh "${scannerHome}/bin/sonar-scanner"   
+            steps{
+            withSonarQubeEnv('valaxy-sonarqube-server') {
+              sh "${scannerHome}/bin/sonar-scanner"   
 
     }
      
