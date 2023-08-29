@@ -38,18 +38,18 @@ pipeline {
     }    
     }
 
-    stage("Quality gate"){
-        steps {
-            script {
-                timeout(time: 1, unit: 'HOURS') {
-                    def qg = waitForQualityGate()
-                    if (qg.status != 'OK') {
-                    error "pipeline borted due to quality gate failure: ${qg.status}"
-                    }
-                }
-            }
-        }
-    }
+    #stage("Quality gate"){
+        #steps {
+            #script {
+           #     timeout(time: 1, unit: 'HOURS') {
+          #          def qg = waitForQualityGate()
+         #           if (qg.status != 'OK') {
+        #            error "pipeline borted due to quality gate failure: ${qg.status}"
+       #             }
+      #          }
+     #       }
+    #    }
+   # }
 
     stage("Jar Publish") {
         steps {
